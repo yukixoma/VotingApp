@@ -41,6 +41,11 @@ app.get("/index",function(req,res){
     res.render("index",{note: note});
     note = "Creat your voting poll FREE";
 })
+app.get("/",function(req,res){
+    if (auth) return res.redirect("/user/" + username);
+    res.render("index",{note: note});
+    note = "Creat your voting poll FREE";
+})
 
 // Login Page
 app.post("/login",function(req,res,next){
