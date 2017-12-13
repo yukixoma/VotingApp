@@ -1,0 +1,111 @@
+<html>
+    
+    
+    <head>    
+        <link rel="stylesheet" href="/lib/bootstrap.min.css" crossorigin="anonymous"> 
+        <script src="/lib/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="/lib/tether.min.js"  crossorigin="anonymous"></script>
+        <script src="/lib/bootstrap.min.js" crossorigin="anonymous"></script>
+    </head>
+    <div>
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-info">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Voting App</a>
+          
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" >
+                    <a class="nav-link" id="manage">
+                        Poll Manager 
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>                                  
+              </ul>
+              <ul class="navbar-nav mal-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" >
+                        <span id="username">
+                            Username
+                        </span>    
+                    </a>
+                  </li>              
+              </ul>
+              <form class="form-inline my-2 my-lg-0" action="/login" method="POST">            
+                <button class="btn btn-danger my-2 my-sm-0" type="submit"> 
+                    Sign out
+                </button>                    
+              </form>
+              
+            </div>
+        </nav>
+        <div class="text-center" style="margin-top: 100">
+            <h1> Update your poll </h1>
+            <h5 style="color:red"> "Don't leave blank input" </h5>
+            <br>
+            <div class="row">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4">
+                    <form class="form-group" method="POST" id="form">
+                        <input class="form-control" name="username" style="display:none" id="username-form"> 
+                        <input class="form-control mr-sm-2" type="text" name="vote" id="question" disabled>
+                            <br>
+                        <div id="option">
+                            <!-- List of option come here -->
+                        </div> 
+                        <div style="display:inline-block">
+                            <button class="btn btn-outline-info my-2 my-sm-0" type="button" id="more"> 
+                                More          
+                            </button> 
+                            <button class="btn btn-outline-danger my-2 my-sm-0 center-block" type="button" id="delete"> 
+                                Delete       
+                            </button>
+                        </div>               
+                            <br>
+                            <br>
+                        <button class="btn btn-outline-success" method="POST" type="submit" id="create poll" >
+                            <h1>
+                                Update
+                            </h1>
+                        </button>                           
+                    </form> 
+                </div>
+            </div>   
+        </div>
+        <nav class="navbar fixed-bottom navbar-inverse bg-info">
+            <div class="row" style="color:white">
+                <div class="col-lg-4">
+                    Design by Yukixoma
+                    <br>
+                    <a href="https://github.com/yukixoma" style="color:white" target="_blank"> 
+                        Github  
+                    </a>                                        
+                </div>
+                <div class="col-lg-4">
+    
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-right">
+                        Server: NODEJS
+                         <br>      
+                        Client: HTML, CSS, Javascript
+                             
+                    </div>
+                </div>
+            </div>             
+        </nav>
+    </div>
+    <!-- always add <script> bottom of file to execute exactly --> 
+        <script type='text/javascript'> 
+            var data = <%-JSON.stringify(data)%>;
+            var username = data.username;
+            var vote = data.vote;
+            if(username) {
+                document.getElementById("username").innerText = "Hello " + username;
+                document.getElementById("username-form").value = username;
+            }
+        </script>
+        <script src="/script/update.js"></script>
+    </html>

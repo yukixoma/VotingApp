@@ -1,0 +1,89 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="/lib/bootstrap.min.css" crossorigin="anonymous"> 
+            <script src="/lib/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+            <script src="/lib/tether.min.js"  crossorigin="anonymous"></script>
+            <script src="/lib/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+    <style>
+        
+    </style>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="/script/result.js"> </script>
+    </head>
+    <body>      
+      <div>
+            <nav class="navbar navbar-toggleable-md navbar-inverse bg-success">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">Voting App</a>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index">
+                            Home 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                                
+                  </ul>
+                  
+                  <form class="form-inline my-2 my-lg-0" action="/login" method="POST">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit"> 
+                        Sign out
+                    </button>                  
+                  </form>
+                </div>
+            </nav>
+            <div class="row" >
+                <div class="col-lg-3">
+                </div>            
+                <div class="col-lg-6 text-center" id="all_chart" style="margin-top: 100px">
+                        <div id="chart_name" class="text-center" style="margin-bottom: 100px"> 
+                            <h1>
+                                Manage all your polls
+                            </h1> 
+                            <h5 style="color: red">
+                                "Update poll will erase all before data"
+                            </h5>
+                        </div>
+                        
+                    <!-- All chart will be shown here -->  
+                </div>
+                
+                                              
+            </div>
+
+            <nav class="navbar fixed-bottom navbar-inverse bg-success">
+                <div class="row" style="color:white">
+                    <div class="col-lg-4">
+                        Design by Yukixoma
+                        <br>
+                        <a href="https://github.com/yukixoma" style="color:white" target="_blank"> 
+                            Github  
+                        </a>                                        
+                    </div>
+                    <div class="col-lg-4">
+        
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-right">
+                            Server: NODEJS
+                             <br>      
+                            Client: HTML, CSS, Javascript
+                                 
+                        </div>
+                    </div>
+                </div>             
+            </nav>
+        </div>
+    <script> 
+        var serverdata = <%-JSON.stringify(data)%>; 
+        var username = <%-JSON.stringify(username)%>;
+    </script>
+    <script src="/script/manage.js"> </script>  
+    </body>
+  </html>

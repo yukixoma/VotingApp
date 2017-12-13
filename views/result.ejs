@@ -1,0 +1,98 @@
+<html>
+    <head>
+            <link rel="stylesheet" href="/lib/bootstrap.min.css" crossorigin="anonymous"> 
+            <script src="/lib/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+            <script src="/lib/tether.min.js"  crossorigin="anonymous"></script>
+            <script src="/lib/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script> 
+        var serverdata = <%-JSON.stringify(data)%>; 
+        var auth = <%-JSON.stringify(auth) %>;
+        var table =[];
+        console.log(serverdata);
+        for (var i = 1; i < Object.keys(serverdata).length -3; i++) {
+            var key = "option" + i;
+            table.push([serverdata[key].option, +serverdata[key].value]) 
+        }
+    </script>
+    <style>
+        
+    </style>
+    <!--Load the AJAX API-->
+    
+    </head>
+    <body>      
+      <div>
+            <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">Voting App</a>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index">
+                            Home 
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active" style="display:none" id="manage">
+                            <a class="nav-link" href="../poll/manage">
+                                Poll Manager
+                                <span class="sr-only">(current)</span>
+                            </a>
+                    </li>            
+                  </ul>
+                  <div id = "login_field">
+                    <form class="form-inline my-2 my-lg-0" action="/login" method="POST" id="login">
+                        <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username">
+                        <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit"> 
+                            Login 
+                        </button>                    
+                    </form>
+                  </div>
+                </div>
+            </nav>
+            <div class="row" >
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-6">
+                        <div id="chart_name" class="text-center" style="margin-top: 100px; margin-bottom: 50px">
+                            
+                        </div>
+                        <div id="chart_div" align="center">
+                                <!--Div that will hold the pie chart-->
+                        </div>
+                </div>
+                
+                                              
+            </div>
+
+            <nav class="navbar fixed-bottom navbar-inverse bg-primary">
+                <div class="row" style="color:white">
+                    <div class="col-lg-4">
+                        Design by Yukixoma
+                        <br>
+                        <a href="https://github.com/yukixoma" style="color:white" target="_blank"> 
+                            Github  
+                        </a>          
+                    </div>
+                    <div class="col-lg-4">
+        
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="text-right">
+                            Server: NODEJS
+                             <br>      
+                            Client: HTML, CSS, Javascript
+                                 
+                        </div>
+                    </div>
+                </div>             
+            </nav>
+        </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="/script/result.js"> </script>    
+    </body>
+  </html>
